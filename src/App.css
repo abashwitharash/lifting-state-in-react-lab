@@ -23,7 +23,7 @@ body,
 #root {
   margin: 0;
   height: 100%;
-  overflow-x: hidden;
+
 }
 
 main {
@@ -77,3 +77,4 @@ button {
   background-color: #1a1a1a;
   border: 1px solid transparent;
 }
+

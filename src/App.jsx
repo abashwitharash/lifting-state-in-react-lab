@@ -14,30 +14,31 @@ const App = () => {
     { name: 'Black Bean Patty', color: '#3F250B' },
     { name: 'Chicken Patty', color: 'burlywood' },
     { name: 'Lettuce', color: 'lawngreen' },
-    { name: 'Tomato', color: 'tomato' },
+    { name: 'Tomato', color: 'hotpink' },
     { name: 'Bacon', color: 'maroon' },
     { name: 'Onion', color: 'lightyellow' },
-    { name: 'Cheddar Cheese', color: '#FDE18B' },
+    { name: 'Cheddar Cheese', color: 'orange' },
     { name: 'Swiss Cheese', color: '#F1E1A8' },
   ];
 
   const [stack, setStack] = useState([]);
 
-  const addToBurger = () => {
-    setStack{[...setStack, ingredient]};
+  const addToBurger = (ingredient) => {
+    setStack([...stack, ingredient]);
 
   };
 
-  const removeFromBurger = () => {
-
+  const removeFromBurger = (index) => {
+    setStack([...stack.slice(0, index), ...stack.slice(index + 1)]);
   };
+  
 
   return (
     <main>
-      <h1>Burger Stacker</h1>
+      <h1>STACK THE BURGER</h1>
       <section>
-      <IngredientList ingredients={availableIngredients} />
-      <BurgerStack bIngredient={availableIngredients}/>
+      <IngredientList ingredients={availableIngredients} addToBurger={addToBurger}/>
+      <BurgerStack stack={stack} removeFromBurger={removeFromBurger}/>
       </section>
     </main>
   );
